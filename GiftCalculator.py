@@ -30,27 +30,27 @@ i=0
 personclass={}
 
 for word in f.readline().split():
-    s = person(word)
-    personclass[word] = s
+    s = person(word)                             # creating a new object
+    personclass[word] = s                        # appending it to the dictionary
 
 
 
-for i in range(1,num_lines):
-    a = f.readline()
-    wordarr = a.split()
+for i in range(1,num_lines):                        
+    a = f.readline()                              # taking one line
+    wordarr = a.split()                           # this array containing words
     print wordarr
 
-    name = wordarr[0]
-    give = int(wordarr[1])
-    divide = int(wordarr[2])
+    name = wordarr[0]                             # first positon holds the person name who is giving
+    give = int(wordarr[1])                        # how much money he looses
+    divide = int(wordarr[2])                      # to how many people
 
-    plus_money = give/divide
+    plus_money = give/divide                      # how much to add
 
-    for i in range(3,3+divide):
+    for i in range(3,3+divide):                   # how many people taking the money
         friend = wordarr[i]
-        personclass[friend].addcash(plus_money)
+        personclass[friend].addcash(plus_money)   # adding to their account
 
-    personclass[name].minuscash(give)
+    personclass[name].minuscash(give)                # minus from giving person
 
 for key in personclass:
     print personclass[key].name ," : ", personclass[key].cash
