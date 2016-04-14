@@ -1,7 +1,7 @@
 __author__ = 'Siam'
 
 prime =[2,3,5]
-ugly =[]
+ugly =[1]
 
 for i in xrange(2,100):
     num =i
@@ -11,15 +11,14 @@ for i in xrange(2,100):
     while(j<len(prime)):
         if(num%prime[j]==0):
             num = num/prime[j]
-            if(i==14):
-                print num
             if prime[j] not in current:
                 current.append(prime[j])
             continue
         else:
             j = j+1
 
-    current.append(num)
+    if(num!=1):
+        current.append(num)
     if(len(current) == 0):
         continue
 
